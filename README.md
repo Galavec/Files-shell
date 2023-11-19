@@ -1,10 +1,13 @@
-[Léeme en Español](#archivos---bash)
+[Léeme en Español](#archivos---shell)
 
-[Readme in English](#files---bash)
+[Readme in English](#files---shell)
 
 ---
-# Archivos - Bash
+# Archivos - Shell
 Repositorio creado para agregar útiles archivos en codificación Bash.
+
+Los archivos ".sh" son scripts de shell utilizados comúnmente en sistemas Unix y Linux.  
+La principal diferencia entre Bash Shell (.sh) y Batch (.bat) es que Bash Shell es la interfaz de línea de comandos para sistemas UNIX y Linux, mientras que Batch es específico para Windows. Los scripts de Bash suelen tener una extensión ".sh", mientras que los archivos Batch tienen una extensión ".bat" o ".cmd".
 
 ## Archivos que contiene el repositorio
 
@@ -21,8 +24,11 @@ Sube tus cambios para que entre en revisión (●'◡'●)
 
 ---
 
-# Files - Bash
+# Files - Shell
 Repository created to add useful files in Bash coding.
+
+".sh" files are shell scripts commonly used on Unix and Linux systems.  
+The main difference between Bash Shell (.sh) and Batch (.bat) is that Bash Shell is the command-line interface for UNIX and Linux systems, while Batch is specific to Windows. Bash scripts typically have a ".sh" extension, while Batch files have a ".bat" or ".cmd" extension.
 
 ## Files contained in the repository
 
