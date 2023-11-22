@@ -20,6 +20,8 @@ imprimir_list() {
 
 for proyecto in */ ; do
     cd $proyecto
+	
+	echo "Trabajando en $proyecto ..."
     
     # Verifica si es un repositorio Git validando si el subdirectorio contiene un directorio ".git".
     if [ -d .git ]; then
