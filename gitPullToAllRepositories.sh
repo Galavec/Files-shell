@@ -1,4 +1,4 @@
-# Version: 2.1.0
+# Version: 2.2.0
 # Nota, se recomienda ejecutarlo desde la consola de "Git Bash" con versión de Bash "4.0".
 
 TOKEN="123"
@@ -26,7 +26,8 @@ for proyecto in */ ; do
     
     # Verifica si es un repositorio Git validando si el subdirectorio contiene un directorio ".git".
     if [ -d .git ]; then
-		# OUTPUT=$(git -c "http.extraheader=AUTHORIZATION: bearer $TOKEN" pull 2>&1) # TOKEN para GitHub.
+		# OUTPUT=$(git -c "http.extraheader=AUTHORIZATION: bearer $TOKEN" pull 2>&1) # GitHub con TOKEN y mediante HTTPS
+		# OUTPUT=$(git pull 2>&1) # GitHub/GitLab usando clave SSH. Vincula la clave en el 'Agente SSH' de tu sistema operativo para que no te la vuelva a solicitar.
         OUTPUT=$(git -c "http.extraheader=PRIVATE-TOKEN: $TOKEN" pull 2>&1) # TOKEN para GitLab.
         EXIT_STATUS=$?
         
