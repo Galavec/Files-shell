@@ -1,4 +1,5 @@
-# Se recomienda ejecutarlo desde la consola de "Git Bash" con versión de Bash "4.0".
+# Version: 2.1.0
+# Nota, se recomienda ejecutarlo desde la consola de "Git Bash" con versión de Bash "4.0".
 
 TOKEN="123"
 
@@ -41,10 +42,10 @@ for proyecto in */ ; do
             else
                 listas["lRepositorioEnConflictos"]+="$proyecto "
             fi
-        elif echo "$OUTPUT" | grep -q 'Already up to date'; then
-            listas["lRepositorioActualizado"]+="$proyecto "
-        else
-            listas["lErrorDesconocido"]+="$proyecto "
+        elif echo "$OUTPUT" | grep -Eq 'Already up to date|files changed|insertions|deletions'; then
+			listas["lRepositorioActualizado"]+="$proyecto "
+		else
+			listas["lErrorDesconocido"]+="$proyecto "
         fi
     else
         listas["lNoEsRepositorioDeGit"]+="$proyecto "
