@@ -19,18 +19,18 @@ imprimir_list() {
     fi
 }
 
-for proyecto in */ ; do
+for proyecto in */; do
     cd $proyecto
-	
-	echo "Trabajando en $proyecto ..."
-    
+
+    echo "Trabajando en $proyecto ..."
+
     # Verifica si es un repositorio Git validando si el subdirectorio contiene un directorio ".git".
     if [ -d .git ]; then
-		# OUTPUT=$(git -c "http.extraheader=AUTHORIZATION: bearer $TOKEN" pull 2>&1) # GitHub con TOKEN y mediante HTTPS
-		# OUTPUT=$(git pull 2>&1) # GitHub/GitLab usando clave SSH. Vincula la clave en el 'Agente SSH' de tu sistema operativo para que no te la vuelva a solicitar.
+        # OUTPUT=$(git -c "http.extraheader=AUTHORIZATION: bearer $TOKEN" pull 2>&1) # GitHub con TOKEN y mediante HTTPS
+        # OUTPUT=$(git pull 2>&1) # GitHub/GitLab usando clave SSH. Vincula la clave en el 'Agente SSH' de tu sistema operativo para que no te la vuelva a solicitar.
         OUTPUT=$(git -c "http.extraheader=PRIVATE-TOKEN: $TOKEN" pull 2>&1) # TOKEN para GitLab.
         EXIT_STATUS=$?
-        
+
         if [ "$EXIT_STATUS" -ne 0 ]; then
             if echo "$OUTPUT" | grep -q 'Authentication failed'; then
                 listas["lErrorCredenciales"]+="$proyecto "
@@ -44,14 +44,14 @@ for proyecto in */ ; do
                 listas["lRepositorioEnConflictos"]+="$proyecto "
             fi
         elif echo "$OUTPUT" | grep -Eq 'Already up to date|files changed|insertions|deletions'; then
-			listas["lRepositorioActualizado"]+="$proyecto "
-		else
-			listas["lErrorDesconocido"]+="$proyecto "
+            listas["lRepositorioActualizado"]+="$proyecto "
+        else
+            listas["lErrorDesconocido"]+="$proyecto "
         fi
     else
         listas["lNoEsRepositorioDeGit"]+="$proyecto "
     fi
-    
+
     cd ..
 done
 
